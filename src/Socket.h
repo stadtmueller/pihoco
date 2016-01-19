@@ -1,7 +1,7 @@
 #ifndef SOCKET_H
 #define SOCKET_H
 
-#include "../raspberry-remote/RCSwitch.h"
+#include "RCSwitch.h"
 #include <string>
 
 class Socket : public RCSwitch

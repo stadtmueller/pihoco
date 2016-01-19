@@ -1,5 +1,5 @@
 #include "Socket.h"
-#include "../raspberry-remote/RCSwitch.h"
+#include "RCSwitch.h"
 
 #include <iostream>
 

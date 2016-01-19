@@ -20,4 +20,16 @@
 
 int main()
 {
-    Socket s1( "10110", 1, 
+    if( wiringPiSetup() != 0 )
+	return 1;
+
+    Socket s1( "10110", 1, 1 );
+
+    while( true )
+    {
+	s1.on();
+	delay( 1000 );
+	s1.off();
+	delay( 1000 );
+    }
+}
