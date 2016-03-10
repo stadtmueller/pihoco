@@ -6,16 +6,16 @@
 
 class Socket : public RCSwitch
 {
-  public:
-    Socket( std::string systemCode_, int unitCode_, int id_ );
-    void off();
-    void on();
-    void toggle();
-  private:
-    std::string systemCode;
-    int unitCode;
-    int id;
-    int state;
+    public:
+        Socket( std::string systemCode_, int unitCode_, int id_ );
+	void off();
+	void on();
+	void toggle();
+    private:
+	std::string systemCode;
+	int unitCode;
+	int id;
+	int state;
 };
 
 #endif
