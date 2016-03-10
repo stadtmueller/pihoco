@@ -24,12 +24,15 @@ int main()
 	return 1;
 
     Socket s1( "10110", 1, 1 );
+    Socket s2( "01001", 1, 2 ); // These are actualy 2 sockets reacting on the same signal
 
     while( true )
     {
 	s1.on();
+	s2.on();
 	delay( 1000 );
 	s1.off();
+	s2.off();
 	delay( 1000 );
     }
 }
