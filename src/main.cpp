@@ -15,7 +15,7 @@ int main()
     // See additional/schema.png for details on the wiring
 
     if( wiringPiSetup() == -1 )
-      return 1;
+        return 1;
 
     piHiPri( 30 );
 
@@ -53,17 +53,18 @@ int main()
     //   Profiles:
     //     Add as many profiles as you've defined on/off vector pairs @ timing
     //
-    //  A configuration programm is planed
-    //
 
     std::cout << "Setting up profiles..." << std::endl;
 
     // Profile 1:
-    std::vector<std::tm> prof1On = { tmFactory( 12, 10, 00 ) /* ... */ }; // 18:00:00
+    std::vector<std::tm> prof1On = { tmFactory( 12, 10, 00 ) /* ... */ };  // 18:00:00
     std::vector<std::tm> prof1Off = { tmFactory( 12, 11, 00 ) /* ... */ }; // 06:15:00
 
     Socket s1( "11111", 1, 1 );
+    // ...
+
     std::vector<Socket> prof1Sockets = { s1 };
+
 
     Profile prof1( prof1On, prof1Off, prof1Sockets, "Tim" );
 
