@@ -16,8 +16,8 @@
  */
 
 
+#include "buttonpress.h"
 #include "Profile.h"
-#include "buttonReaction.h"
 #include "Socket.h"
 #include <iostream>
 #include <vector>
@@ -44,19 +44,19 @@ int main()
     pinMode( 23, OUTPUT );
 
     pinMode( 1, INPUT );
-    wiringPiISR( 1, INT_EDGE_RISING, button::shutdown );
+    wiringPiISR( 1, INT_EDGE_RISING, &button::shutdown );
 
     pinMode( 4, INPUT );
-    wiringPiISR( 4, INT_EDGE_RISING, button::pause48h );
+    wiringPiISR( 4, INT_EDGE_RISING, &button::pause48h );
 
     pinMode( 5, INPUT );
-    wiringPiISR( 5, INT_EDGE_RISING, button::masterButton );
+    wiringPiISR( 5, INT_EDGE_RISING, &button::masterButton );
 
     pinMode( 6, INPUT );
-    wiringPiISR( 6, INT_EDGE_RISING, button::button1Pressed );
+    wiringPiISR( 6, INT_EDGE_RISING, &button::button1Pressed );
 
     pinMode( 26, INPUT );
-    wiringPiISR( 26, INT_EDGE_RISING, button::button2Pressed );
+    wiringPiISR( 26, INT_EDGE_RISING, &button::button2Pressed );
 
 
     //
