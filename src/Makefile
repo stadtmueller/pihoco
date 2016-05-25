@@ -24,7 +24,7 @@ buttenpress.o: buttonpress.h buttonpress.cpp
 
 
 test: test.o Socket.o
-	$(CXX) -o test test.o Socket.o
+	$(CXX) -o test test.o Socket.o $(FLAGS) $(LDFLAGS)
 
 test.o: test.cpp
 	$(CXX) -c test.cpp $(FLAGS)
