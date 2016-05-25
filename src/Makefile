@@ -1,10 +1,11 @@
 CXX=g++
-FLAGS=-Wall -lwiringPi -std=c++11 -pthread
+FLAGS=-Wall -std=c++11 
+LDFLAGS=-pthread -lwiringPi
 
 all: main
 
 main: main.o RCSwitch.o Socket.o Profile.o buttonpress.o
-	$(CXX) -o main main.o RCSwitch.o Socket.o Profile.o buttonpress.o $(FLAGS)
+	$(CXX) -o main main.o RCSwitch.o Socket.o Profile.o buttonpress.o $(FLAGS) $(LDFLAGS)
 
 main.o: main.cpp
 	$(CXX) -c main.cpp $(FLAGS)
