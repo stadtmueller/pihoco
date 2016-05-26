@@ -10,9 +10,8 @@ class ConfigParser
     public:
 	ConfigParser( std::string file_ );
 	std::vector<Profile> getProfiles();
-	bool good;
-    private:
 	int parse();
+    private:
 	std::string file;
 	std::vector<Profile> profileBuffer;
 };

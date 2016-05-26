@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <deque>
 
 ConfigParser::ConfigParser( std::string file_ ):
 file( file_ )
@@ -12,20 +13,17 @@ file( file_ )
 }
 
 std::vector<Profile> ConfigParser::getProfiles()
-{
-    if( this -> parse() )
-    {
-        std::cout << "Error reading config file" << std::endl;
-        this -> good = false;
-    }
-    
+{   
     return this -> profileBuffer;
 }
 
 int ConfigParser::parse()
 {
-    std::ifstream f( (this -> file.c_str()) );
+    // Read and form the file:
+    std::ifstream f( this -> file.c_str() );
     std::string s = { };
+    std::string sBuf = { };
+    std::deque<std::string> lines;
 
     if( !f )
     {
@@ -36,7 +34,13 @@ int ConfigParser::parse()
 
     while( f.get( c ) )
     {
-	s += c;
+	if( c != '\n' )
+	    s += c;
+	else
+	{
+	    lines.push_back( s );
+	    s = "";
+	}
     }
 
     if( f.eof() )
@@ -46,7 +50,11 @@ int ConfigParser::parse()
 
     f.close();
 
-    std::cout << s << std::endl;
+
+    // Generate data from file content
+    for( std::string l : lines )
+    { 
+    }
 
     return 0;
 }

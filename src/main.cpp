@@ -72,6 +72,20 @@ int main()
     //     Add as many profiles as you've defined on/off vector pairs @ timing
     //
 
+    /*
+
+    ConfigParser parser( "profiles.conf" );
+
+    if( parser.parse() )
+    {
+	std::cout << "Error parsing!" << std::endl;
+	return 1;
+    }
+
+    std::vector<Profile> prof = parser.getProfile();
+
+    */
+
     std::cout << "Setting up profiles..." << std::endl;
 
     // Profile 1:
