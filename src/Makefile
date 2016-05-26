@@ -23,8 +23,8 @@ buttenpress.o: buttonpress.h buttonpress.cpp
 	$(CXX) -c buttonpress.cpp $(FLAGS)
 
 
-test: test.o Socket.o
-	$(CXX) -o test test.o Socket.o
+test: test.o Socket.o RCSwitch.o
+	$(CXX) -o test test.o Socket.o RCSwitch.o $(FLAGS) $(LDFLAGS)
 
 test.o: test.cpp
 	$(CXX) -c test.cpp $(FLAGS)
