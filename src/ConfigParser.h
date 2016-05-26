@@ -13,7 +13,8 @@ class ConfigParser
 	bool good;
     private:
 	int parse();
-	std::string file
+	std::string file;
 	std::vector<Profile> profileBuffer;
+};
 	
 #endif

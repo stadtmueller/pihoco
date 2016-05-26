@@ -4,8 +4,8 @@ LDFLAGS=-pthread -lwiringPi
 
 all: main
 
-main: main.o RCSwitch.o Socket.o Profile.o buttonpress.o
-	$(CXX) -o main main.o RCSwitch.o Socket.o Profile.o buttonpress.o $(FLAGS) $(LDFLAGS)
+main: main.o RCSwitch.o Socket.o Profile.o ConfigParser.o buttonpress.o
+	$(CXX) -o main main.o RCSwitch.o Socket.o Profile.o ConfigParser.o buttonpress.o $(FLAGS) $(LDFLAGS)
 
 main.o: main.cpp
 	$(CXX) -c main.cpp $(FLAGS)
@@ -18,6 +18,9 @@ Socket.o: Socket.h Socket.cpp
 
 Profile.o: Profile.h Profile.cpp
 	$(CXX) -c Profile.cpp $(FLAGS)
+
+ConfigParser.o: ConfigParser.h ConfigParser.cpp
+	$(CXX) -c ConfigParser.cpp $(FLAGS)
 
 buttenpress.o: buttonpress.h buttonpress.cpp
 	$(CXX) -c buttonpress.cpp $(FLAGS)

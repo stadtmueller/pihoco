@@ -3,6 +3,7 @@
 #include "Profile.h"
 
 #include <iostream>
+#include <fstream>
 
 ConfigParser::ConfigParser( std::string file_ ):
 file( file_ )
@@ -21,9 +22,9 @@ std::vector<Profile> ConfigParser::getProfiles()
     return this -> profileBuffer;
 }
 
-int ConfigParser parse()
+int ConfigParser::parse()
 {
-    std::ifstream f( this -> file.c_str() );
+    std::ifstream f( (this -> file.c_str()) );
     std::string s = { };
 
     if( !f )
@@ -35,10 +36,18 @@ int ConfigParser parse()
 
     while( f.get( c ) )
     {
-	s.append( c );
+	s += c;
     }
+
+    if( f.eof() )
+    {
+	f.clear();
+    }
+
+    f.close();
 
     std::cout << s << std::endl;
 
     return 0;
 }
+
