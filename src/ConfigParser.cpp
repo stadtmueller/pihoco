@@ -34,7 +34,9 @@ int ConfigParser::parse()
 
     while( f.get( c ) )
     {
-	if( c != '\n' && c != ' ' )
+	if( c == ' ' )
+	    continue;
+	else if( c != '\n' )
 	    s += c;
 	else
 	{
@@ -52,10 +54,31 @@ int ConfigParser::parse()
 
 
     // Generate data from file content
+    bool inProfile = false;
+    std::deque<std::tm> onTimes;
+    std::deque<std::tm> offTimes;
+    std::deque<Socket> sockets;
+    std::string owner;
+
     for( std::string l : lines )
     {
-	if( l.find( "#" ) == 0 )
-	    continue; 
+	if( l.find( '#' ) == 0 )
+	    continue;
+
+	if( l.find( "<Profile>" && !inProfile ) )
+	    inProfile = true;
+
+	if( l.find( "name" ) && inProfile )
+	    owner = l;
+
+	if( l.find( "</Profile>" ) )
+	{
+	    inProfile = false;
+	    onTimes = { };
+	    offTimes = { };
+	    sockets = { };
+	    owner = "";
+	}
     }
 
     return 0;

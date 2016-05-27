@@ -17,6 +17,7 @@
 
 
 #include "buttonpress.h"
+#include "ConfigParser.h"
 #include "Profile.h"
 #include "Socket.h"
 #include <iostream>
@@ -72,7 +73,7 @@ int main()
     //     Add as many profiles as you've defined on/off vector pairs @ timing
     //
 
-    /*
+    
 
     ConfigParser parser( "profiles.conf" );
 
@@ -82,10 +83,10 @@ int main()
 	return 1;
     }
 
-    std::vector<Profile> prof = parser.getProfile();
+    std::vector<Profile> prof = parser.getProfiles();
 
-    */
-
+    
+/*
     std::cout << "Setting up profiles..." << std::endl;
 
     // Profile 1:
@@ -109,6 +110,6 @@ int main()
 
     std::thread t1( [&prof1]{ prof1.start(); } );
     t1.join();
-
+*/
     return 0;
 }
