@@ -34,7 +34,7 @@ int ConfigParser::parse()
 
     while( f.get( c ) )
     {
-	if( c != '\n' )
+	if( c != '\n' && c != ' ' )
 	    s += c;
 	else
 	{
@@ -53,7 +53,9 @@ int ConfigParser::parse()
 
     // Generate data from file content
     for( std::string l : lines )
-    { 
+    {
+	if( l.find( "#" ) == 0 )
+	    continue; 
     }
 
     return 0;

@@ -89,8 +89,8 @@ int main()
     std::cout << "Setting up profiles..." << std::endl;
 
     // Profile 1:
-    std::vector<std::tm> prof1On = { tmFactory( 12, 10, 00 ) /* ... */ };  // 18:00:00
-    std::vector<std::tm> prof1Off = { tmFactory( 12, 11, 00 ) /* ... */ }; // 06:15:00
+    std::vector<std::tm> prof1On = { tmFactory( 12, 10, 00 ) };  // 18:00:00
+    std::vector<std::tm> prof1Off = { tmFactory( 12, 11, 00 ) }; // 06:15:00
 
     Socket s1( "11111", 1, 1 );
     // ...
